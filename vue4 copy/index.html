@@ -1,0 +1,16 @@
+<!-- 10月8日の続き -->
+<!DOCTYPE html>
+<title>はじめてのVue.js</title>
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<div id="app">
+  <p>
+    {{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}
+  </p>
+  <p>
+    フィルタ処理例 {{items[0].price | numberWithDelimiter}}
+    <!-- 3桁のカンマを入れる場所を指定 -->
+  </p>
+</div>
+<script src="items.js"></script>
+<!--  ローカルでは以後も同様にscript要素で読み込みを追記 -->

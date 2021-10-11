@@ -1,0 +1,40 @@
+<!-- 10月8日の続き -->
+<!DOCTYPE html>
+<title>はじめてのVue.js</title>
+<script src="https://unpkg.com/vue@2.5.17"></script>
+
+<div id="app">
+  <div :style="errorMessageStyle">
+    <ul>
+      <!-- 各商品の単価と購入個数をリスト表示する -->
+      <li v-for="item in items" v-bind:key="item.name">
+        {{ item.name }}: {{ item.price }} x {{ item.quantity }} = {{ item.price * item.quantity | numberWithDelimiter }}円
+      </li>
+    </ul>
+    <p>
+      {{ items[0].name }}: {{ items[0].price }} x {{ items[0].quantity }}
+    </p>
+    <p>
+      小計： {{ totalPrice | numberWithDelimiter }}円
+    </p>
+    <p>
+      フィルタ処理例(単価を引き出す) {{items[0].price | numberWithDelimiter}}円
+    <!--  3桁のカンマを入れる場所を指定 -->
+    </p>
+    <p>
+      合計（税込）: {{ totalPriceWithTax | numberWithDelimiter }}円
+      <!-- 属性に応じて、表示を出し分けする -->
+    </p>
+    <p v-show="!canBuy">
+      {{ 1000 | numberWithDelimiter }}円以上からご購入いただけます
+    </p>
+    <p :cass="errorMessageClass">
+      adf
+    </p>
+  </div>
+</div>
+
+
+
+<script src="items.js"></script>
+<!--  ローカルでは以後も同様にscript要素で読み込みを追記 -->
